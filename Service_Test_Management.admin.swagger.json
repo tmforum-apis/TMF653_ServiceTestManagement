@@ -1266,9 +1266,9 @@
             "required": [
                 "name", 
                 "conformanceComparatorLower",
-				"conformanceTargetUpper",
-				"conformanceComparatorUpper",
-				"conformanceTargetLower",
+		"conformanceTargetUpper",
+		"conformanceComparatorUpper",
+		"conformanceTargetLower"
             ],
 			"properties": {
                 "conformanceTargetLower": {
