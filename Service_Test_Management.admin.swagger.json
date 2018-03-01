@@ -1444,7 +1444,7 @@
                 "conformanceComparatorLower",
 				"conformanceTargetUpper",
 				"conformanceComparatorUpper",
-				"conformanceTargetLower",
+				"conformanceTargetLower"
             ],
 			"properties": {
                 "conformanceTargetLower": {
