@@ -6,7 +6,7 @@
         "version": "2.0"
     }, 
     "host": "biologeek.orange-labs.fr", 
-    "basePath": "/tmf-api/serviceTestManagement", 
+    "basePath": "/tmf-api/serviceTestManagement/v2/", 
     "schemes": [
         "https"
     ], 
@@ -33,176 +33,180 @@
                         "description": "Comma separated properties to display in response"
                     }, 
                     {
-                        "type": "string", 
+                        "type": "integer", 
                         "required": false, 
                         "in": "query", 
-                        "name": "@baseType", 
-                        "description": "For filtering: Indicates the base type of the resource. Here can be Service Test."
+                        "name": "offset", 
+                        "description": "Requested index for start of resources to be provided in response"
                     }, 
                     {
-                        "type": "string", 
+                        "type": "integer", 
                         "required": false, 
                         "in": "query", 
-                        "name": "@schemaLocation", 
-                        "description": "For filtering: A link to the schema describing this REST resource"
+                        "name": "limit", 
+                        "description": "Requested number of resources to be provided in response"
                     }, 
                     {
-                        "type": "string", 
-                        "required": false, 
+                        "format": "date-time", 
                         "in": "query", 
-                        "name": "@type", 
-                        "description": "For filtering: Indicates the type of resource. Here can be Service Test"
-                    }, 
-                    {
+                        "type": "string", 
                         "name": "endDateTime", 
-                        "format": "date-time", 
-                        "required": false, 
-                        "in": "query", 
-                        "type": "string", 
-                        "description": "For filtering: The end date and time of the service test"
+                        "description": "For filtering on the base of 'endDateTime' field (equality)"
                     }, 
                     {
+                        "name": "endDateTime.gt", 
+                        "description": "For filtering on the base of 'endDateTime' field (great than)", 
                         "type": "string", 
-                        "required": false, 
+                        "format": "date-time", 
+                        "in": "query"
+                    }, 
+                    {
+                        "name": "endDateTime.lt", 
+                        "description": "For filtering on the base of 'endDateTime' field (less than)", 
+                        "type": "string", 
+                        "format": "date-time", 
+                        "in": "query"
+                    }, 
+                    {
                         "in": "query", 
+                        "type": "string", 
                         "name": "mode", 
-                        "description": "For filtering: An indication of whether the service test is running in \n\"PROACTIVE\" or \"ONDEMAND\" mode"
+                        "description": "For filtering on the base of 'mode' field (equality)"
                     }, 
                     {
-                        "type": "string", 
-                        "required": false, 
                         "in": "query", 
+                        "type": "string", 
                         "name": "name", 
-                        "description": "For filtering: The name of the service test"
+                        "description": "For filtering on the base of 'name' field (equality)"
                     }, 
                     {
-                        "name": "startDateTime", 
                         "format": "date-time", 
-                        "required": false, 
                         "in": "query", 
                         "type": "string", 
-                        "description": "For filtering: The start date and time of the service test."
+                        "name": "startDateTime", 
+                        "description": "For filtering on the base of 'startDateTime' field (equality)"
                     }, 
                     {
+                        "name": "startDateTime.gt", 
+                        "description": "For filtering on the base of 'startDateTime' field (great than)", 
                         "type": "string", 
-                        "required": false, 
+                        "format": "date-time", 
+                        "in": "query"
+                    }, 
+                    {
+                        "name": "startDateTime.lt", 
+                        "description": "For filtering on the base of 'startDateTime' field (less than)", 
+                        "type": "string", 
+                        "format": "date-time", 
+                        "in": "query"
+                    }, 
+                    {
                         "in": "query", 
+                        "type": "string", 
                         "name": "state", 
-                        "description": "For filtering: The actual state the service test is in"
+                        "description": "For filtering on the base of 'state' field (equality)"
                     }, 
                     {
-                        "type": "string", 
-                        "required": false, 
                         "in": "query", 
-                        "name": "relatedService.@referredType", 
-                        "description": "For filtering: Indicates the (class) type of related service."
-                    }, 
-                    {
                         "type": "string", 
-                        "required": false, 
-                        "in": "query", 
-                        "name": "relatedService.@schemaLocation", 
-                        "description": "For filtering: A link to the schema describing this REST resource."
-                    }, 
-                    {
-                        "type": "string", 
-                        "required": false, 
-                        "in": "query", 
                         "name": "relatedService.name", 
-                        "description": "For filtering: A name to describe a service."
+                        "description": "For filtering on the base of 'name' field (equality)"
                     }, 
                     {
-                        "type": "string", 
-                        "required": false, 
-                        "in": "query", 
-                        "name": "relatedServiceTestSpecification.@referredType", 
-                        "description": "For filtering: "
-                    }, 
-                    {
-                        "type": "string", 
-                        "required": false, 
-                        "in": "query", 
-                        "name": "relatedServiceTestSpecification.@schemaLocation", 
-                        "description": "For filtering: "
-                    }, 
-                    {
-                        "name": "testMeasure.accuracy", 
                         "format": "float", 
-                        "required": false, 
                         "in": "query", 
                         "type": "number", 
-                        "description": "For filtering: The number of digits of accuracy captured for Metrics associated"
+                        "name": "testMeasure.accuracy", 
+                        "description": "For filtering on the base of 'accuracy' field (equality)"
                     }, 
                     {
-                        "name": "testMeasure.caputureDateTime", 
+                        "name": "testMeasure.accuracy.gt", 
+                        "description": "For filtering on the base of 'accuracy' field (great than)", 
+                        "type": "number", 
+                        "format": "float", 
+                        "in": "query"
+                    }, 
+                    {
+                        "name": "testMeasure.accuracy.lt", 
+                        "description": "For filtering on the base of 'accuracy' field (less than)", 
+                        "type": "number", 
+                        "format": "float", 
+                        "in": "query"
+                    }, 
+                    {
                         "format": "date-time", 
-                        "required": false, 
                         "in": "query", 
                         "type": "string", 
-                        "description": "For filtering: The date and time that capture the metric."
+                        "name": "testMeasure.captureDateTime", 
+                        "description": "For filtering on the base of 'captureDateTime' field (equality)"
                     }, 
                     {
+                        "name": "testMeasure.captureDateTime.gt", 
+                        "description": "For filtering on the base of 'captureDateTime' field (great than)", 
                         "type": "string", 
-                        "required": false, 
-                        "in": "query", 
-                        "name": "testMeasure.caputureMethod", 
-                        "description": "For filtering: \"The method used to capture the Metrics. \nNote: This may be replaced by a set of entities similar to the \nPerformance Monitoring Ref."
+                        "format": "date-time", 
+                        "in": "query"
                     }, 
                     {
+                        "name": "testMeasure.captureDateTime.lt", 
+                        "description": "For filtering on the base of 'captureDateTime' field (less than)", 
                         "type": "string", 
-                        "required": false, 
+                        "format": "date-time", 
+                        "in": "query"
+                    }, 
+                    {
                         "in": "query", 
+                        "type": "string", 
+                        "name": "testMeasure.captureMethod", 
+                        "description": "For filtering on the base of 'captureMethod' field (equality)"
+                    }, 
+                    {
+                        "in": "query", 
+                        "type": "string", 
                         "name": "testMeasure.metricDescription", 
-                        "description": "For filtering: Brief description of the metric"
+                        "description": "For filtering on the base of 'metricDescription' field (equality)"
                     }, 
                     {
-                        "type": "string", 
-                        "required": false, 
                         "in": "query", 
+                        "type": "string", 
                         "name": "testMeasure.metricHref", 
-                        "description": "For filtering: Hyperlink to access a metric for detail information."
+                        "description": "For filtering on the base of 'metricHref' field (equality)"
                     }, 
                     {
-                        "type": "string", 
-                        "required": false, 
                         "in": "query", 
+                        "type": "string", 
                         "name": "testMeasure.metricName", 
-                        "description": "For filtering: The name of metric."
+                        "description": "For filtering on the base of 'metricName' field (equality)"
                     }, 
                     {
-                        "type": "string", 
-                        "required": false, 
                         "in": "query", 
+                        "type": "string", 
                         "name": "testMeasure.unitOfMeasure", 
-                        "description": "For filtering: The unit of measure for the metric values, such as meters, \ncubic yards, kilograms [ISO 1000]."
+                        "description": "For filtering on the base of 'unitOfMeasure' field (equality)"
                     }, 
                     {
-                        "type": "string", 
-                        "required": false, 
                         "in": "query", 
+                        "type": "string", 
                         "name": "testMeasure.value", 
-                        "description": "For filtering: The value of Metric in the test. This also could be a documents \nto record all values got during the service test."
+                        "description": "For filtering on the base of 'value' field (equality)"
                     }, 
                     {
-                        "type": "string", 
-                        "required": false, 
                         "in": "query", 
+                        "type": "string", 
                         "name": "testMeasure.valueType", 
-                        "description": "For filtering: A kind of value that the Metric value associated with a \nmetricValue can take on, such as numeric, text, and so forth."
+                        "description": "For filtering on the base of 'valueType' field (equality)"
                     }, 
                     {
-                        "type": "string", 
-                        "required": false, 
                         "in": "query", 
+                        "type": "string", 
                         "name": "serviceTestCharacteristic.name", 
-                        "description": "For filtering: The name of the characteristic."
+                        "description": "For filtering on the base of 'name' field (equality)"
                     }, 
                     {
-                        "type": "string", 
-                        "required": false, 
                         "in": "query", 
+                        "type": "string", 
                         "name": "serviceTestCharacteristic.value", 
-                        "description": "For filtering: The value of characteristic."
+                        "description": "For filtering on the base of 'value' field (equality)"
                     }
                 ], 
                 "responses": {
@@ -421,118 +425,114 @@
                         "description": "Comma separated properties to display in response"
                     }, 
                     {
-                        "type": "string", 
+                        "type": "integer", 
                         "required": false, 
                         "in": "query", 
-                        "name": "@baseType", 
-                        "description": "For filtering: Indicates the base type of the resource. Here can be service test specification."
+                        "name": "offset", 
+                        "description": "Requested index for start of resources to be provided in response"
                     }, 
                     {
-                        "type": "string", 
+                        "type": "integer", 
                         "required": false, 
                         "in": "query", 
-                        "name": "@schemaLocation", 
-                        "description": "For filtering: Link to schema describing this REST resource."
+                        "name": "limit", 
+                        "description": "Requested number of resources to be provided in response"
                     }, 
                     {
-                        "type": "string", 
-                        "required": false, 
                         "in": "query", 
-                        "name": "@type", 
-                        "description": "For filtering: Indicates the (class) type of service test specification"
-                    }, 
-                    {
                         "type": "string", 
-                        "required": false, 
-                        "in": "query", 
                         "name": "name", 
-                        "description": "For filtering: Name of a service test specification."
+                        "description": "For filtering on the base of 'name' field (equality)"
                     }, 
                     {
+                        "format": "date-time", 
+                        "in": "query", 
+                        "type": "string", 
                         "name": "validFor.endDateTime", 
-                        "format": "date-time", 
-                        "required": false, 
-                        "in": "query", 
-                        "type": "string", 
-                        "description": "For filtering: An instant of time, ending at the TimePeriod."
+                        "description": "For filtering on the base of 'endDateTime' field (equality)"
                     }, 
                     {
+                        "name": "validFor.endDateTime.gt", 
+                        "description": "For filtering on the base of 'endDateTime' field (great than)", 
+                        "type": "string", 
+                        "format": "date-time", 
+                        "in": "query"
+                    }, 
+                    {
+                        "name": "validFor.endDateTime.lt", 
+                        "description": "For filtering on the base of 'endDateTime' field (less than)", 
+                        "type": "string", 
+                        "format": "date-time", 
+                        "in": "query"
+                    }, 
+                    {
+                        "format": "date-time", 
+                        "in": "query", 
+                        "type": "string", 
                         "name": "validFor.startDateTime", 
+                        "description": "For filtering on the base of 'startDateTime' field (equality)"
+                    }, 
+                    {
+                        "name": "validFor.startDateTime.gt", 
+                        "description": "For filtering on the base of 'startDateTime' field (great than)", 
+                        "type": "string", 
                         "format": "date-time", 
-                        "required": false, 
-                        "in": "query", 
-                        "type": "string", 
-                        "description": "For filtering: An instant of time, starting at the TimePeriod"
+                        "in": "query"
                     }, 
                     {
+                        "name": "validFor.startDateTime.lt", 
+                        "description": "For filtering on the base of 'startDateTime' field (less than)", 
                         "type": "string", 
-                        "required": false, 
-                        "in": "query", 
-                        "name": "testMeasure.captureFrequency", 
-                        "description": "For filtering: The frequency of capture for the metric. Note: This may be \nreplaced by a set of entities similar to the Performance Monitoring."
+                        "format": "date-time", 
+                        "in": "query"
                     }, 
                     {
-                        "type": "string", 
-                        "required": false, 
                         "in": "query", 
-                        "name": "testMeasure.captureMethod", 
-                        "description": "For filtering: The method used to capture the Metric. Note: This may be \nreplaced by a set of entities similar to the Performance Monitoring."
+                        "type": "string", 
+                        "name": "testMeasureDefinition.captureFrequency", 
+                        "description": "For filtering on the base of 'captureFrequency' field (equality)"
                     }, 
                     {
-                        "type": "string", 
-                        "required": false, 
                         "in": "query", 
-                        "name": "testMeasure.metricDescription", 
-                        "description": "For filtering: Brief description of the metric."
+                        "type": "string", 
+                        "name": "testMeasureDefinition.captureMethod", 
+                        "description": "For filtering on the base of 'captureMethod' field (equality)"
                     }, 
                     {
-                        "type": "string", 
-                        "required": false, 
                         "in": "query", 
-                        "name": "testMeasure.metricHref", 
-                        "description": "For filtering: Hyperlink to access a metric for detail information."
+                        "type": "string", 
+                        "name": "testMeasureDefinition.metricDescription", 
+                        "description": "For filtering on the base of 'metricDescription' field (equality)"
                     }, 
                     {
-                        "type": "string", 
-                        "required": false, 
                         "in": "query", 
-                        "name": "testMeasure.metricName", 
-                        "description": "For filtering: The name of a metric that in the test measure."
+                        "type": "string", 
+                        "name": "testMeasureDefinition.metricHref", 
+                        "description": "For filtering on the base of 'metricHref' field (equality)"
                     }, 
                     {
-                        "type": "string", 
-                        "required": false, 
                         "in": "query", 
-                        "name": "testMeasure.name", 
-                        "description": "For filtering: The name of the TestMeasureDefinition."
+                        "type": "string", 
+                        "name": "testMeasureDefinition.metricName", 
+                        "description": "For filtering on the base of 'metricName' field (equality)"
                     }, 
                     {
-                        "type": "string", 
-                        "required": false, 
                         "in": "query", 
-                        "name": "testMeasure.unitOfMeasure", 
-                        "description": "For filtering: Name of a service test specification."
+                        "type": "string", 
+                        "name": "testMeasureDefinition.name", 
+                        "description": "For filtering on the base of 'name' field (equality)"
                     }, 
                     {
-                        "type": "string", 
-                        "required": false, 
                         "in": "query", 
-                        "name": "testMeasure.valueType", 
-                        "description": "For filtering: A kind of value that the Metric value can take on, such as \nnumeric, text, and so forth."
+                        "type": "string", 
+                        "name": "testMeasureDefinition.unitOfMeasure", 
+                        "description": "For filtering on the base of 'unitOfMeasure' field (equality)"
                     }, 
                     {
-                        "type": "string", 
-                        "required": false, 
                         "in": "query", 
-                        "name": "relatedServiceSpecification.@referredType", 
-                        "description": "For filtering: Indicates the (class) type of related service specification."
-                    }, 
-                    {
                         "type": "string", 
-                        "required": false, 
-                        "in": "query", 
-                        "name": "relatedServiceSpecification.@schemaLocation", 
-                        "description": "For filtering: A link to the schema describing this REST resource."
+                        "name": "testMeasureDefinition.valueType", 
+                        "description": "For filtering on the base of 'valueType' field (equality)"
                     }
                 ], 
                 "responses": {
@@ -817,19 +817,10 @@
         "ServiceTest": {
             "type": "object", 
             "description": "A service test is an entity that exists that exists for a controlled test invocation on a service. The service \ntest is executed according to a schedule and contains service test configuration parameters that are to be \napplied at execution time, and service test measures that result.", 
+            "required": [
+                "name"
+            ], 
             "properties": {
-                "@baseType": {
-                    "type": "string", 
-                    "description": "Indicates the base type of the resource. Here can be Service Test."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing this REST resource"
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "Indicates the type of resource. Here can be Service Test"
-                }, 
                 "description": {
                     "type": "string", 
                     "description": "Description of the service test"
@@ -881,6 +872,18 @@
                     "items": {
                         "$ref": "#/definitions/ServiceTestCharacteristic"
                     }
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "The class type of the actual resource (for type extension)."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A link to the schema describing a resource (for type extension)."
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "The base type for use in polymorphic collections"
                 }
             }
         }, 
@@ -893,18 +896,6 @@
                 "relatedServiceTestSpecification"
             ], 
             "properties": {
-                "@baseType": {
-                    "type": "string", 
-                    "description": "Indicates the base type of the resource. Here can be Service Test."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing this REST resource"
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "Indicates the type of resource. Here can be Service Test"
-                }, 
                 "description": {
                     "type": "string", 
                     "description": "Description of the service test"
@@ -948,6 +939,18 @@
                     "items": {
                         "$ref": "#/definitions/ServiceTestCharacteristic"
                     }
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "The class type of the actual resource (for type extension)."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A link to the schema describing a resource (for type extension)."
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "The base type for use in polymorphic collections"
                 }
             }
         }, 
@@ -955,18 +958,6 @@
             "type": "object", 
             "description": "A service test is an entity that exists that exists for a controlled test invocation on a service. The service \ntest is executed according to a schedule and contains service test configuration parameters that are to be \napplied at execution time, and service test measures that result.\nSkipped properties: id,href,id,href", 
             "properties": {
-                "@baseType": {
-                    "type": "string", 
-                    "description": "Indicates the base type of the resource. Here can be Service Test."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing this REST resource"
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "Indicates the type of resource. Here can be Service Test"
-                }, 
                 "description": {
                     "type": "string", 
                     "description": "Description of the service test"
@@ -1010,25 +1001,28 @@
                     "items": {
                         "$ref": "#/definitions/ServiceTestCharacteristic"
                     }
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "The class type of the actual resource (for type extension)."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A link to the schema describing a resource (for type extension)."
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "The base type for use in polymorphic collections"
                 }
             }
         }, 
         "ServiceTestSpecification": {
             "type": "object", 
             "description": "The service test specification describes the service test in terms of parameters to be configured and \nmeasures to be taken.", 
+            "required": [
+                "name"
+            ], 
             "properties": {
-                "@baseType": {
-                    "type": "string", 
-                    "description": "Indicates the base type of the resource. Here can be service test specification."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "Link to schema describing this REST resource."
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "Indicates the (class) type of service test specification"
-                }, 
                 "description": {
                     "type": "string", 
                     "description": "Description of a service test specification."
@@ -1049,7 +1043,7 @@
                     "$ref": "#/definitions/TimePeriod", 
                     "description": "A valid duration of a thing."
                 }, 
-                "testMeasure": {
+                "testMeasureDefinition": {
                     "type": "array", 
                     "items": {
                         "$ref": "#/definitions/TestMeasureDefinition"
@@ -1057,6 +1051,18 @@
                 }, 
                 "relatedServiceSpecification": {
                     "$ref": "#/definitions/RelatedServiceSpecificationRef"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "The class type of the actual resource (for type extension)."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A link to the schema describing a resource (for type extension)."
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "The base type for use in polymorphic collections"
                 }
             }
         }, 
@@ -1068,18 +1074,6 @@
                 "relatedServiceSpecification"
             ], 
             "properties": {
-                "@baseType": {
-                    "type": "string", 
-                    "description": "Indicates the base type of the resource. Here can be service test specification."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "Link to schema describing this REST resource."
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "Indicates the (class) type of service test specification"
-                }, 
                 "description": {
                     "type": "string", 
                     "description": "Description of a service test specification."
@@ -1092,7 +1086,7 @@
                     "$ref": "#/definitions/TimePeriod", 
                     "description": "A valid duration of a thing."
                 }, 
-                "testMeasure": {
+                "testMeasureDefinition": {
                     "type": "array", 
                     "items": {
                         "$ref": "#/definitions/TestMeasureDefinition"
@@ -1100,6 +1094,18 @@
                 }, 
                 "relatedServiceSpecification": {
                     "$ref": "#/definitions/RelatedServiceSpecificationRef"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "The class type of the actual resource (for type extension)."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A link to the schema describing a resource (for type extension)."
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "The base type for use in polymorphic collections"
                 }
             }
         }, 
@@ -1107,18 +1113,6 @@
             "type": "object", 
             "description": "The service test specification describes the service test in terms of parameters to be configured and \nmeasures to be taken.\nSkipped properties: id,href,id,href,validFor", 
             "properties": {
-                "@baseType": {
-                    "type": "string", 
-                    "description": "Indicates the base type of the resource. Here can be service test specification."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "Link to schema describing this REST resource."
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "Indicates the (class) type of service test specification"
-                }, 
                 "description": {
                     "type": "string", 
                     "description": "Description of a service test specification."
@@ -1127,7 +1121,7 @@
                     "type": "string", 
                     "description": "Name of a service test specification."
                 }, 
-                "testMeasure": {
+                "testMeasureDefinition": {
                     "type": "array", 
                     "items": {
                         "$ref": "#/definitions/TestMeasureDefinition"
@@ -1135,6 +1129,18 @@
                 }, 
                 "relatedServiceSpecification": {
                     "$ref": "#/definitions/RelatedServiceSpecificationRef"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "The class type of the actual resource (for type extension)."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A link to the schema describing a resource (for type extension)."
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "The base type for use in polymorphic collections"
                 }
             }
         }, 
@@ -1142,18 +1148,9 @@
             "type": "object", 
             "description": "The service of the service test", 
             "required": [
-                "id", 
-                "href"
-            ], 					
-			"properties": {
-                "@referredType": {
-                    "type": "string", 
-                    "description": "Indicates the (class) type of related service."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing this REST resource."
-                }, 
+                "name"
+            ], 
+            "properties": {
                 "href": {
                     "type": "string", 
                     "description": "Hyperlink to access a service."
@@ -1165,19 +1162,21 @@
                 "name": {
                     "type": "string", 
                     "description": "A name to describe a service."
+                }, 
+                "@referredType": {
+                    "type": "string", 
+                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
         "RelatedServiceTestSpecificationRef": {
             "type": "object", 
             "description": "The service test specification used by the service test.", 
+            "required": [
+                "href", 
+                "id"
+            ], 
             "properties": {
-                "@referredType": {
-                    "type": "string"
-                }, 
-                "@schemaLocation": {
-                    "type": "string"
-                }, 
                 "href": {
                     "type": "string", 
                     "description": "Hyperlink to access a service test specification."
@@ -1185,6 +1184,10 @@
                 "id": {
                     "type": "string", 
                     "description": "Identifier of a service test specification."
+                }, 
+                "@referredType": {
+                    "type": "string", 
+                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -1195,18 +1198,18 @@
                 "metricHref", 
                 "metricName"
             ], 
-			"properties": {
+            "properties": {
                 "accuracy": {
                     "type": "number", 
                     "format": "float", 
                     "description": "The number of digits of accuracy captured for Metrics associated"
                 }, 
-                "caputureDateTime": {
+                "captureDateTime": {
                     "type": "string", 
                     "format": "date-time", 
                     "description": "The date and time that capture the metric."
                 }, 
-                "caputureMethod": {
+                "captureMethod": {
                     "type": "string", 
                     "description": "\"The method used to capture the Metrics. \nNote: This may be replaced by a set of entities similar to the \nPerformance Monitoring Ref."
                 }, 
@@ -1239,6 +1242,10 @@
                     "items": {
                         "$ref": "#/definitions/MeasureThresholdRuleViolation"
                     }
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "The class type of the actual resource (for type extension)."
                 }
             }
         }, 
@@ -1249,7 +1256,7 @@
                 "name", 
                 "value"
             ], 
-			"properties": {
+            "properties": {
                 "name": {
                     "type": "string", 
                     "description": "The name of the characteristic."
@@ -1257,28 +1264,21 @@
                 "value": {
                     "type": "string", 
                     "description": "The value of characteristic."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "The class type of the actual resource (for type extension)."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A link to the schema describing a resource (for type extension)."
                 }
             }
         }, 
         "MeasureThresholdRuleViolation": {
             "type": "object", 
             "description": "A measureThresholdRuleViolation is a violation of a rule that defines the in the \nMericDefMeasureThresholdRule.", 
-            "required": [
-                "name", 
-                "conformanceComparatorLower",
-		"conformanceTargetUpper",
-		"conformanceComparatorUpper",
-		"conformanceTargetLower"
-            ],
-			"properties": {
-                "conformanceTargetLower": {
-                    "type": "string", 
-                    "description": "A value used to determine if the threshold is crossed or ceases \nto be crossed. It represents the lower limit. The value should be less than the conformanceTargetUpper. The conformance comparators should also be logically defined so as to not lead to a logically impossible condition."
-                }, 
-                "conformanceTargetUpper": {
-                    "type": "string", 
-                    "description": "A value used to determine if the threshold is crossed or ceases \nto be crossed. It represents the Upper limit. The value should be greater than the conformanceTargetLower. The conformance comparators should also be logically defined so as to not lead to a logically impossible condition."
-                }, 
+            "properties": {
                 "conformanceComparatorLower": {
                     "type": "string", 
                     "description": "An operator that when applied on a value specifies whether a \nthreshold is crossed or ceased to be crossed. This operator is used to compare with the conformanceTargetLower."
@@ -1286,6 +1286,14 @@
                 "conformanceComparatorUpper": {
                     "type": "string", 
                     "description": "An operator that when applied on a value specifies whether a \nthreshold is crossed or ceased to be crossed. This operator is used to compare with the conformanceTargetUpper."
+                }, 
+                "conformanceTargetLower": {
+                    "type": "string", 
+                    "description": "A value used to determine if the threshold is crossed or ceases \nto be crossed. It represents the lower limit. The value should be less than the conformanceTargetUpper. The conformance comparators should also be logically defined so as to not lead to a logically impossible condition."
+                }, 
+                "conformanceTargetUpper": {
+                    "type": "string", 
+                    "description": "A value used to determine if the threshold is crossed or ceases \nto be crossed. It represents the Upper limit. The value should be greater than the conformanceTargetLower. The conformance comparators should also be logically defined so as to not lead to a logically impossible condition."
                 }, 
                 "description": {
                     "type": "string", 
@@ -1312,6 +1320,10 @@
                     "items": {
                         "$ref": "#/definitions/AppliedConsequence"
                     }
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "The class type of the actual resource (for type extension)."
                 }
             }
         }, 
@@ -1333,13 +1345,21 @@
                 }, 
                 "repeatAction": {
                     "type": "string", 
-                    "description": "An indicator use to specify that a consequence should cease \nbeing applied if a value is in the same range as the previous value or continue being applied if a value is in the same range as the previous value.  \nIf the repeatAcation is True, if the consequence is always applied as soon as the MetricMeasure value is in the range of values and if the repeatAcation is False, the consequence is applied only if the previous MetricMeasure value wasn't in the same range."
+                    "description": "An indicator use to specify that a consequence should cease \nbeing applied if a value is in the same range as the previous value or continue being applied if a value is in the same range as the previous value.  \nIf the repeatAcation is True, if the consequence is always applied as soon as the MetricMeasure value is in the range of values and if the repeatAcation is False, the consequence is applied only if the previous MetricMeasure value wasn\u00a1\u00aft in the same range."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "The class type of the actual resource (for type extension)."
                 }
             }
         }, 
         "TimePeriod": {
             "type": "object", 
             "description": "A base / value business entity used to represent a period of time between two timepoints.", 
+            "required": [
+                "endDateTime", 
+                "startDateTime"
+            ], 
             "properties": {
                 "endDateTime": {
                     "type": "string", 
@@ -1358,10 +1378,10 @@
             "description": "A TestMeasureDefinition specifies a measure of a specific aspect of a product, service, or resource test, \nsuch as lost packets or connectivity status.", 
             "required": [
                 "metricName", 
-                "metricHref",
-				"name"
+                "metricHref", 
+                "name"
             ], 
-			"properties": {
+            "properties": {
                 "captureFrequency": {
                     "type": "string", 
                     "description": "The frequency of capture for the metric. Note: This may be \nreplaced by a set of entities similar to the Performance Monitoring."
@@ -1372,7 +1392,7 @@
                 }, 
                 "capturePeriod": {
                     "$ref": "#/definitions/TimePeriod", 
-                    "description": "A period of the capture"
+                    "description": "A period of the capture."
                 }, 
                 "metricDescription": {
                     "type": "string", 
@@ -1402,30 +1422,26 @@
                     "type": "string", 
                     "description": "A kind of value that the Metric value can take on, such as \nnumeric, text, and so forth."
                 }, 
-                "metircDefMeasureTresholdRule": {
+                "metricDefMeasureThresholdRule": {
                     "type": "array", 
                     "items": {
                         "$ref": "#/definitions/MetricDefMeasureThresholdRule"
                     }
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "The class type of the actual resource (for type extension)."
                 }
             }
         }, 
         "RelatedServiceSpecificationRef": {
             "type": "object", 
             "description": "The related service specification.", 
-			"required": [
-                "id", 
-                "href"
+            "required": [
+                "href", 
+                "id"
             ], 
             "properties": {
-                "@referredType": {
-                    "type": "string", 
-                    "description": "Indicates the (class) type of related service specification."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing this REST resource."
-                }, 
                 "href": {
                     "type": "string", 
                     "description": "Hyperlink to access service specification."
@@ -1433,28 +1449,17 @@
                 "id": {
                     "type": "string", 
                     "description": "The identifier of a service specification."
+                }, 
+                "@referredType": {
+                    "type": "string", 
+                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
         "MetricDefMeasureThresholdRule": {
             "type": "object", 
             "description": "A MetricDefMeasureThresholdRule is a rule that defines the condition (raise or clear) to achieve to apply \nconsequences when a threshold is crossed or ceased to be crossed. It also defines the severity of the \nraise or clear of the threshold.", 
-			"required": [
-                "name", 
-                "conformanceComparatorLower",
-				"conformanceTargetUpper",
-				"conformanceComparatorUpper",
-				"conformanceTargetLower"
-            ],
-			"properties": {
-                "conformanceTargetLower": {
-                    "type": "string", 
-                    "description": "A value used to determine if the threshold is crossed or ceases \nto be crossed. It represents the lower limit. The value should be less than the conformanceTargetUpper. The conformance comparators should also be logically defined so as to not lead to a logically impossible condition."
-                }, 
-                "conformanceTargetUpper": {
-                    "type": "string", 
-                    "description": "A value used to determine if the threshold is crossed or ceases \nto be crossed. It represents the Upper limit. The value should be greater than the conformanceTargetLower. The conformance comparators should also be logically defined so as to not lead to a logically impossible condition."
-                }, 
+            "properties": {
                 "conformanceComparatorLower": {
                     "type": "string", 
                     "description": "An operator that when applied on a value specifies whether a \nthreshold is crossed or ceased to be crossed. This operator is used to Service Test Management API REST Specification compare with the conformanceTargetLower."
@@ -1462,6 +1467,14 @@
                 "conformanceComparatorUpper": {
                     "type": "string", 
                     "description": "An operator that when applied on a value specifies whether a \nthreshold is crossed or ceased to be crossed. This operator is used to compare with the conformanceTargetUpper."
+                }, 
+                "conformanceTargetLower": {
+                    "type": "string", 
+                    "description": "A value used to determine if the threshold is crossed or ceases \nto be crossed. It represents the lower limit. The value should be less than the conformanceTargetUpper. The conformance comparators should also be logically defined so as to not lead to a logically impossible condition."
+                }, 
+                "conformanceTargetUpper": {
+                    "type": "string", 
+                    "description": "A value used to determine if the threshold is crossed or ceases \nto be crossed. It represents the Upper limit. The value should be greater than the conformanceTargetLower. The conformance comparators should also be logically defined so as to not lead to a logically impossible condition."
                 }, 
                 "description": {
                     "type": "string", 
@@ -1472,7 +1485,7 @@
                     "description": "Name for the MetricDefMeasureThresholdRule ."
                 }, 
                 "numberOfAllowedCrossing": {
-                    "type": "integer", 
+                    "type": "string", 
                     "description": "The number of allowed crossing occurrences in reference to the \ntolerancePeriod without a consequence being initiated."
                 }, 
                 "thresholdRuleSeverity": {
@@ -1488,6 +1501,10 @@
                     "items": {
                         "$ref": "#/definitions/MetricDefMeasureConsequence"
                     }
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "The class type of the actual resource (for type extension)."
                 }
             }
         }, 
@@ -1509,11 +1526,15 @@
                 }, 
                 "repeatAction": {
                     "type": "string", 
-                    "description": "An indicator use to specify that a consequence should cease \nbeing applied if a value is in the same range as the previous value  or continue being applied if a value is in the same range as the previous value.   \nIf the repeatAcation is True, if the consequence is always applied as soon as the MetricMeasure value is in the range of values and if the repeatAcation is False, the consequence is applied only if the previous MetricMeasure value wasn't in the same range."
+                    "description": "An indicator use to specify that a consequence should cease \nbeing applied if a value is in the same range as the previous value  or continue being applied if a value is in the same range as the previous value.   \nIf the repeatAcation is True, if the consequence is always applied as soon as the MetricMeasure value is in the range of values and if the repeatAcation is False, the consequence is applied only if the previous MetricMeasure value wasn\u00a1\u00aft in the same range."
                 }, 
                 "validFor": {
                     "$ref": "#/definitions/TimePeriod", 
                     "description": "A valid duration of a thing."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "The class type of the actual resource (for type extension)."
                 }
             }
         }, 
@@ -1555,24 +1576,36 @@
         "Error": {
             "required": [
                 "code", 
-                "message"
+                "reason"
             ], 
             "properties": {
                 "code": {
                     "type": "integer", 
-                    "description": "An integer coding the error type. This is given to caller so he can translate them if required."
+                    "description": "Application related code."
+                }, 
+                "reason": {
+                    "type": "integer", 
+                    "description": "Text that explains the reason for error."
                 }, 
                 "message": {
                     "type": "string", 
-                    "description": "A short localized string that describes the error."
+                    "description": "(optional) Text that provide more details and corrective actions related to the error."
                 }, 
-                "description": {
-                    "type": "string", 
-                    "description": "(optional) A long localized error description if needed. It can contain precise information about which parameter is missing, or what are the identifier acceptable values."
+                "status": {
+                    "type": "integer", 
+                    "description": "(optional) http error code extension like 400-2"
                 }, 
-                "infoURL": {
+                "referenceError": {
                     "type": "string", 
                     "description": "(optional) A URL to online documentation that provides more information about the error."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "(optional) The class type of a REST resource."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "(optional) A link to the schema describing a REST resource."
                 }
             }
         }
