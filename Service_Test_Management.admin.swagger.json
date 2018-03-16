@@ -199,13 +199,13 @@
                     {
                         "in": "query", 
                         "type": "string", 
-                        "name": "serviceTestCharacteristic.name", 
+                        "name": "characteristic.name", 
                         "description": "For filtering on the base of 'name' field (equality)"
                     }, 
                     {
                         "in": "query", 
                         "type": "string", 
-                        "name": "serviceTestCharacteristic.value", 
+                        "name": "characteristic.value", 
                         "description": "For filtering on the base of 'value' field (equality)"
                     }
                 ], 
@@ -803,6 +803,9 @@
                             "$ref": "#/definitions/Error"
                         }
                     }, 
+                    "204": {
+                        "description": "Deleted"
+                    }, 
                     "500": {
                         "description": "Internal Server Error", 
                         "schema": {
@@ -856,10 +859,10 @@
                     "description": "The actual state the service test is in"
                 }, 
                 "relatedService": {
-                    "$ref": "#/definitions/RelatedServiceRef"
+                    "$ref": "#/definitions/ServiceRef"
                 }, 
-                "relatedServiceTestSpecification": {
-                    "$ref": "#/definitions/RelatedServiceTestSpecificationRef"
+                "testSpecification": {
+                    "$ref": "#/definitions/ServiceTestSpecificationRef"
                 }, 
                 "testMeasure": {
                     "type": "array", 
@@ -867,7 +870,7 @@
                         "$ref": "#/definitions/TestMeasure"
                     }
                 }, 
-                "serviceTestCharacteristic": {
+                "characteristic": {
                     "type": "array", 
                     "items": {
                         "$ref": "#/definitions/ServiceTestCharacteristic"
@@ -893,7 +896,7 @@
             "required": [
                 "name", 
                 "relatedService", 
-                "relatedServiceTestSpecification"
+                "testSpecification"
             ], 
             "properties": {
                 "description": {
@@ -923,10 +926,10 @@
                     "description": "The actual state the service test is in"
                 }, 
                 "relatedService": {
-                    "$ref": "#/definitions/RelatedServiceRef"
+                    "$ref": "#/definitions/ServiceRef"
                 }, 
-                "relatedServiceTestSpecification": {
-                    "$ref": "#/definitions/RelatedServiceTestSpecificationRef"
+                "testSpecification": {
+                    "$ref": "#/definitions/ServiceTestSpecificationRef"
                 }, 
                 "testMeasure": {
                     "type": "array", 
@@ -934,7 +937,7 @@
                         "$ref": "#/definitions/TestMeasure"
                     }
                 }, 
-                "serviceTestCharacteristic": {
+                "characteristic": {
                     "type": "array", 
                     "items": {
                         "$ref": "#/definitions/ServiceTestCharacteristic"
@@ -985,10 +988,10 @@
                     "description": "The actual state the service test is in"
                 }, 
                 "relatedService": {
-                    "$ref": "#/definitions/RelatedServiceRef"
+                    "$ref": "#/definitions/ServiceRef"
                 }, 
-                "relatedServiceTestSpecification": {
-                    "$ref": "#/definitions/RelatedServiceTestSpecificationRef"
+                "testSpecification": {
+                    "$ref": "#/definitions/ServiceTestSpecificationRef"
                 }, 
                 "testMeasure": {
                     "type": "array", 
@@ -996,7 +999,7 @@
                         "$ref": "#/definitions/TestMeasure"
                     }
                 }, 
-                "serviceTestCharacteristic": {
+                "characteristic": {
                     "type": "array", 
                     "items": {
                         "$ref": "#/definitions/ServiceTestCharacteristic"
@@ -1050,7 +1053,8 @@
                     }
                 }, 
                 "relatedServiceSpecification": {
-                    "$ref": "#/definitions/RelatedServiceSpecificationRef"
+                    "$ref": "#/definitions/ServiceSpecificationRef", 
+                    "description": "The related service specification"
                 }, 
                 "@type": {
                     "type": "string", 
@@ -1093,7 +1097,8 @@
                     }
                 }, 
                 "relatedServiceSpecification": {
-                    "$ref": "#/definitions/RelatedServiceSpecificationRef"
+                    "$ref": "#/definitions/ServiceSpecificationRef", 
+                    "description": "The related service specification"
                 }, 
                 "@type": {
                     "type": "string", 
@@ -1128,7 +1133,8 @@
                     }
                 }, 
                 "relatedServiceSpecification": {
-                    "$ref": "#/definitions/RelatedServiceSpecificationRef"
+                    "$ref": "#/definitions/ServiceSpecificationRef", 
+                    "description": "The related service specification"
                 }, 
                 "@type": {
                     "type": "string", 
@@ -1144,9 +1150,9 @@
                 }
             }
         }, 
-        "RelatedServiceRef": {
+        "ServiceRef": {
             "type": "object", 
-            "description": "The service of the service test", 
+            "description": "The service related to the service test", 
             "required": [
                 "name"
             ], 
@@ -1169,7 +1175,7 @@
                 }
             }
         }, 
-        "RelatedServiceTestSpecificationRef": {
+        "ServiceTestSpecificationRef": {
             "type": "object", 
             "description": "The service test specification used by the service test.", 
             "required": [
@@ -1237,7 +1243,7 @@
                     "type": "string", 
                     "description": "A kind of value that the Metric value associated with a \nmetricValue can take on, such as numeric, text, and so forth."
                 }, 
-                "measureThresholdRuleViolation": {
+                "ruleViolation": {
                     "type": "array", 
                     "items": {
                         "$ref": "#/definitions/MeasureThresholdRuleViolation"
@@ -1422,7 +1428,7 @@
                     "type": "string", 
                     "description": "A kind of value that the Metric value can take on, such as \nnumeric, text, and so forth."
                 }, 
-                "metricDefMeasureThresholdRule": {
+                "thresholdRule": {
                     "type": "array", 
                     "items": {
                         "$ref": "#/definitions/MetricDefMeasureThresholdRule"
@@ -1434,7 +1440,7 @@
                 }
             }
         }, 
-        "RelatedServiceSpecificationRef": {
+        "ServiceSpecificationRef": {
             "type": "object", 
             "description": "The related service specification.", 
             "required": [
@@ -1496,7 +1502,7 @@
                     "type": "string", 
                     "description": "A String. An interval of time of allowed crossing occurrences before a consequence being initiated."
                 }, 
-                "metricDefMeasureConsequence": {
+                "consequence": {
                     "type": "array", 
                     "items": {
                         "$ref": "#/definitions/MetricDefMeasureConsequence"
