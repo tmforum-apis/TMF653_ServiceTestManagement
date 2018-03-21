@@ -1154,7 +1154,8 @@
             "type": "object", 
             "description": "The service related to the service test", 
             "required": [
-                "name"
+                "id",
+                "href"
             ], 
             "properties": {
                 "href": {
@@ -1284,6 +1285,13 @@
         "MeasureThresholdRuleViolation": {
             "type": "object", 
             "description": "A measureThresholdRuleViolation is a violation of a rule that defines the in the \nMericDefMeasureThresholdRule.", 
+            "required": [
+                "name",
+                "conformanceComparatorLower",
+                "conformanceComparatorUpper",
+                "conformanceTargetLower",
+                "conformanceTargetUpper"
+            ], 
             "properties": {
                 "conformanceComparatorLower": {
                     "type": "string", 
@@ -1465,6 +1473,13 @@
         "MetricDefMeasureThresholdRule": {
             "type": "object", 
             "description": "A MetricDefMeasureThresholdRule is a rule that defines the condition (raise or clear) to achieve to apply \nconsequences when a threshold is crossed or ceased to be crossed. It also defines the severity of the \nraise or clear of the threshold.", 
+            "required": [
+                "name",
+                "conformanceComparatorLower",
+                "conformanceComparatorUpper",
+                "conformanceTargetLower",
+                "conformanceTargetUpper"
+            ], 
             "properties": {
                 "conformanceComparatorLower": {
                     "type": "string", 
