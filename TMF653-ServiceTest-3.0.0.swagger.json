@@ -3,10 +3,10 @@
     "info": {
         "title": "Service Test Management",
         "description": "## TMF API Reference: TMF656 - Service Test Management\n\n### Release : 18.5 - December 2018\n\nService Test Management API goal is to provide the ability to manage tests of provisioned Services. \n\n### Resource \n- ServiceTest \n- ServiceTestSpecification\n\n### Operations\nService Test Management API performs the following operations on the resources :\n- Retrieve an entity or a collection of entities depending on filter criteria\n- Partial update of an entity (including updating rules)\n- Create an entity (including default values and creation rules)\n- Delete an entity (for administration purposes)\n- Manage notification of events",
-        "version": "4.0.0"
+        "version": "3.0.0"
     },
     "host": "serverRoot",
-    "basePath": "/tmf-api/serviceTestManagement/v4/",
+    "basePath": "/tmf-api/serviceTestManagement/v3/",
     "schemes": [
         "https"
     ],
